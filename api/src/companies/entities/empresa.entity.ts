@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { Clase } from './clase.entity';
+import { Clase } from '../../classes/entities/clase.entity';
 import { Sector } from './sector.entity';
 
 @Entity()

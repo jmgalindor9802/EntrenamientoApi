@@ -8,11 +8,11 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { Instructor } from '../../usuario/entities/instructor.entity';
+import { Instructor } from '../../users/entities/instructor.entity';
 import { Clase } from './clase.entity';
 import { Curso } from './curso.entity';
 import { Horario } from './horario.entity';
-import { Salon } from './salon.entity';
+import { Salon } from '../../places/entities/salon.entity';
 // import { Tipo_Grupo } from './tipo_grupo.entity';
 
 @Entity()

@@ -1,6 +1,6 @@
 import { Check, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-import { Clase } from '../../curso/entities/clase.entity';
+import { Clase } from '../../classes/entities/clase.entity';
 
 @Entity()
 export class Estudiante {
@@ -24,7 +24,7 @@ export class Estudiante {
   correo: string;
   @Column({ type: 'nvarchar', length: 60, comment: 'Usuario del Estudiante' })
   usuario: string;
-  @Column({ type: 'nvarchar', length: 50, nullable: true, 'Numero de contacto del Estudiante'})
+  @Column({ type: 'nvarchar', length: 50, nullable: true, comment:'Numero de contacto del Estudiante'})
   @Check('CK_NUM_CONTACTO_ESTUDIANTE',"NUM_CONTACTO='0' OR LEN(NUM_CONTACTO)>=7")
   num_contacto: string;
   @Column({ type: 'bit', default: 1 })

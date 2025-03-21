@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-import { Grupo } from '../../curso/entities/grupo.entity';
+import { Grupo } from '../../classes/entities/grupo.entity';
 
 @Entity()
 export class Instructor {

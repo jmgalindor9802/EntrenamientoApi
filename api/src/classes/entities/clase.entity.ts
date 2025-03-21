@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 
-import { Estudiante } from '../../usuario/entities/estudiante.entity';
-import { Empresa } from './empresa.entity';
+import { Estudiante } from '../../users/entities/estudiante.entity';
+import { Empresa } from '../../companies/entities/empresa.entity';
 import { Grupo } from './grupo.entity';
 
 @Entity()

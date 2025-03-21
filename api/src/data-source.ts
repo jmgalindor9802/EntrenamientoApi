@@ -1,31 +1,29 @@
-import 'dotenv/config';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
 import { join } from 'path';
+import { environments } from './environments';
 
-dotenv.config();
+const currentEnv = process.env.NODE_ENV;
+const envFile = environments[currentEnv];
 
-console.log(process.env);
-// (configService: ConfigType<typeof config>) => {
-//   const { server, database, user, password, encrypt, port } =
-//     configService.sqlserver;
-// };
-// console.log(process.env);
+dotenv.config({path: envFile});
+
 const source = new DataSource({
   type: 'mssql',
-  host: process.env.SQL_SERVER || 'ealopez\\ealopez',
-  database: process.env.SQL_DATABASE || 'Entrenamiento_Nest',
-  username: process.env.SQL_USER || 'sa',
-  password: process.env.SQL_PASSWORD || 'ealopez',
-  port: parseInt(process.env.SQL_PORT, 10) || 1433,
+  host: process.env.SQL_SERVER ,
+  database: process.env.SQL_DATABASE ,
+  username: process.env.SQL_USER ,
+  password: process.env.SQL_PASSWORD ,
+  port: parseInt(process.env.SQL_PORT, 10),
   extra: {
     trustServerCertificate: true,
+    encrypt: process.env.SQL_ENCRYPT === 'true',
   },
   dropSchema: false,
   synchronize: true,
   entities: [join(__dirname, '**', '**', '*.entity.{ts,js}')],
-  migrations: ['/src/database/migrations'],
+  migrations: ['./src/databases/migrations/*.ts'],
 });
 
 export default source;

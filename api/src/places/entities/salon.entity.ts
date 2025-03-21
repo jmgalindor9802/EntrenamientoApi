@@ -7,11 +7,11 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { Grupo } from './grupo.entity';
+import { Grupo } from '../../classes/entities/grupo.entity';
 import { Ubicacion } from './ubicacion.entity';
 
 @Entity()
-@Check('ck_estado_salon', `"estado"='Deshabilitado' OR "estado"="Habilitado"`)
+@Check(`ck_estado_salon`, `"estado"='Deshabilitado' OR "estado"='Habilitado'`)
 export class Salon {
   @PrimaryGeneratedColumn({ comment: 'Clave primaria del Salon' })
   pk_salon: number;

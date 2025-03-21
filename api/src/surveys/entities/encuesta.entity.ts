@@ -6,9 +6,9 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { Estudiante } from '../../usuario/entities/estudiante.entity';
-import { Clase } from './clase.entity';
-import { Grupo } from './grupo.entity';
+import { Estudiante } from '../../users/entities/estudiante.entity';
+import { Clase } from '../../classes/entities/clase.entity';
+import { Grupo } from '../../classes/entities/grupo.entity';
 import { Pregunta } from './pregunta.entity';
 
 @Entity()

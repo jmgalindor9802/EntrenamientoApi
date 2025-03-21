@@ -12,12 +12,13 @@ import { DatabasesModule } from './databases/databases.module';
 import { ConfigModule } from '@nestjs/config';
 import { environments } from './environments';
 import config from './config';
-import Joi from 'joi';
+import * as Joi from 'joi';
+
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: environments[process.env.NODE_ENV] || '.dev.env',
+      envFilePath: environments[process.env.NODE_ENV],
       load: [config],
       isGlobal: true,
       validationSchema: Joi.object({
